@@ -110,9 +110,13 @@ if (!hasSingleInstanceLock) {
   // initialization and is ready to create browser windows.
   // Some APIs can only be used after this event occurs.
   app.whenReady().then(async () => {
-    // Wait for widevine to load
-    await widevine.whenReady();
-    console.log("components ready:", components.status());
+    try {
+      // Wait for widevine to load
+      await widevine.whenReady();
+      console.log("components ready:", components.status());
+    } catch (e) {
+      console.error("components failed to load:", JSON.stringify(e, null, 2));
+    }
 
     window = createWindow();
     spoofUserAgent();
