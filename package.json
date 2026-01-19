@@ -87,5 +87,6 @@
     "tiny-typed-emitter": "^2.1.0",
     "uuid": "^10.0.0",
     "ws": "^8.18.3"
-  }
+  },
+  "packageManager": "yarn@4.12.0"
 }
